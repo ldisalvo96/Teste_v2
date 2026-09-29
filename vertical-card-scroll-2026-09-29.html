@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vertical Card Scroll</title>
+  <meta name="brik:tool-uuid" content="61f8bf4f-737a-422e-a018-9336fe95370e">
+  <meta name="brik:export-id" content="a068d673-c19a-40e3-9f9d-0a5fd37dd79c">
+  <script>(function(){if(navigator.doNotTrack==='1'||navigator.doNotTrack==='yes')return;try{var c=(function(){var n=function(u){try{var x=new URL(u);return x.protocol+'//'+x.hostname.replace(/^www\./,'')+(x.port?':'+x.port:'')}catch(e){return''}};if(self===window.top)return{u:location.href,h:n(location.href),f:'',s:'direct'};var a=[];try{a=Array.prototype.slice.call(location.ancestorOrigins||[])}catch(e){}var r=document.referrer||'';var t=a.length?n(a[a.length-1]):n(r);if(!a.length&&t){try{if(/(^|\.)(filesusr|wixstatic|parastorage|googleusercontent)\.com$/.test(new URL(t).hostname))return{u:'',h:'',f:r,s:'unknown'}}catch(e){}}var e2='';try{var q=new URL(r);if(n(r)===t&&(q.pathname!=='/'||q.search))e2=r}catch(e){}return{u:e2,h:t,f:n(location.href)!==t?location.href:'',s:e2?'direct':(t?(a.length?'ancestor':'referrer'):'unknown')}})();var b='https://frog.wix.com/brik?src=207&evid=57&export_id='+encodeURIComponent('a068d673-c19a-40e3-9f9d-0a5fd37dd79c')+'&tool_id='+encodeURIComponent('6a4104cff39104e2d44cf32c')+(c.u?'&page_url='+encodeURIComponent(c.u):'')+(c.h?'&page_host='+encodeURIComponent(c.h):'')+'&source=beacon&_='+Date.now();fetch(b,{credentials:'omit',keepalive:!0}).catch(function(){});var p=JSON.stringify({api_key:'phc_ApQuUzthC9YPBTcn2V6vGB2hGb4TSNHHz3xzgtPZfhwL',event:'export_sighted',distinct_id:'a068d673-c19a-40e3-9f9d-0a5fd37dd79c',properties:{export_id:'a068d673-c19a-40e3-9f9d-0a5fd37dd79c',tool_id:'6a4104cff39104e2d44cf32c',tool_uuid:'61f8bf4f-737a-422e-a018-9336fe95370e',page_url:c.u||null,page_host:c.h||null,frame_url:c.f||null,url_resolution:c.s,source:'beacon'}});fetch('https://eu.i.posthog.com/i/v0/e/',{method:'POST',credentials:'omit',keepalive:!0,body:p}).catch(function(){});}catch(e){}})();</script>
+  
+  
+  <style>
+
+    @font-face {
+      font-family: "EarlySans";
+      src: local("EarlySans"), url("https://brik.space/fonts/EarlySans-Regular.woff2") format("woff2");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "EarlySans";
+      src: local("EarlySans Medium"), url("https://brik.space/fonts/EarlySans-Medium.woff2") format("woff2");
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Neue Haas Grotesk Display Pro";
+      src: local("Neue Haas Grotesk Display Pro"), url("https://brik.space/fonts/NeueHaasGroteskDisplayPro-Regular.ttf") format("truetype");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Neue Haas Grotesk Display Pro";
+      src: local("Neue Haas Grotesk Display Pro Medium"), url("https://brik.space/fonts/NeueHaasGroteskDisplayPro-Medium.ttf") format("truetype");
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Neue Haas Grotesk Display Pro";
+      src: local("Neue Haas Grotesk Display Pro Bold"), url("https://brik.space/fonts/NeueHaasGroteskDisplayPro-Bold.ttf") format("truetype");
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+  
+
+
+    :root {
+      --clay-font: "EarlySans", "Early Sans Variable", system-ui, -apple-system, sans-serif;
+      --clay-font-display: "EarlySans", "Early Sans Variable", system-ui, -apple-system, sans-serif;
+      --clay-font-size-xs: 11px;
+      --clay-font-size-sm: 12px;
+      --clay-font-size-base: 14px;
+      --clay-font-size-md: 16px;
+      --clay-font-size-lg: 20px;
+      --clay-font-size-xl: 24px;
+      --clay-font-size-2xl: 32px;
+      --clay-font-size-3xl: 48px;
+      --clay-font-size-4xl: 64px;
+      --clay-font-size-5xl: 96px;
+      --clay-font-weight-regular: 400;
+      --clay-font-weight-medium: 500;
+      --clay-font-weight-bold: 700;
+      --clay-line-height-tight: 1.1;
+      --clay-line-height-normal: 1.4;
+      --clay-line-height-relaxed: 1.6;
+      --clay-letter-spacing-tight: -0.24px;
+      --clay-letter-spacing-normal: 0;
+      --clay-letter-spacing-wide: 0.04em;
+      --clay-black: #000000;
+      --clay-white: #ffffff;
+      --clay-gray-50: #fafafa;
+      --clay-gray-100: #f5f5f5;
+      --clay-gray-200: #e5e5e5;
+      --clay-gray-300: #d4d4d4;
+      --clay-gray-400: #a3a3a3;
+      --clay-gray-500: #737373;
+      --clay-gray-600: #525252;
+      --clay-gray-700: #404040;
+      --clay-gray-800: #262626;
+      --clay-gray-900: #171717;
+      --clay-text-primary: #0a0a0a;
+      --clay-text-secondary: #525252;
+      --clay-text-muted: #a3a3a3;
+      --clay-surface: #ffffff;
+      --clay-surface-secondary: #fafafa;
+      --clay-surface-elevated: #ffffff;
+      --clay-border: #e5e5e5;
+      --clay-border-subtle: #f5f5f5;
+      --clay-space-1: 4px;
+      --clay-space-2: 8px;
+      --clay-space-3: 12px;
+      --clay-space-4: 16px;
+      --clay-space-5: 20px;
+      --clay-space-6: 24px;
+      --clay-space-8: 32px;
+      --clay-space-10: 40px;
+      --clay-space-12: 48px;
+      --clay-space-16: 64px;
+      --clay-radius-sm: 5px;
+      --clay-radius-md: 5px;
+      --clay-radius-lg: 10px;
+      --clay-radius-xl: 10px;
+      --clay-radius-full: 9999px;
+      --ct-card-border: #e1e1e1;
+      --ct-control-surface: #e8e8e8;
+      --ct-control-radius: 5px;
+      --ct-card-radius: 10px;
+      --clay-shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+      --clay-shadow-md: 0 2px 8px rgba(0,0,0,0.08);
+      --clay-shadow-lg: 0 4px 16px rgba(0,0,0,0.12);
+      --clay-ease: cubic-bezier(0.4, 0, 0.2, 1);
+      --clay-duration-fast: 150ms;
+      --clay-duration-normal: 250ms;
+      --clay-duration-slow: 400ms;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      overflow: hidden;
+      font-family: var(--clay-font);
+    }
+    .tool-canvas-area {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    canvas { display: block; background: transparent; }
+
+  </style>
+</head>
+<body>
+  <div class="tool-canvas-area">
+    <canvas id="canvas"></canvas>
+  </div>
+
+  <script>
+
+    // Mobile perf: cap devicePixelRatio so canvases allocate fewer pixels.
+    (function() {
+      var _isMobile = window.innerWidth <= 768;
+      if (_isMobile) {
+        var _nativeDPR = window.devicePixelRatio || 1;
+        var _cappedDPR = Math.min(1.5, _nativeDPR);
+        Object.defineProperty(window, 'devicePixelRatio', { get: function() { return _cappedDPR; } });
+      }
+    })();
+
+    window.CanvasRuntimeAPI = (function() {
+      var _exportMode = 'auto';
+      var _exportWidth = 0;
+      var _exportHeight = 0;
+      var _bgState = { mode: 'none', color: '#ffffff', imageEl: null, imageDataURL: null, fit: 'cover' };
+
+
+
+      var _canvas = document.getElementById('canvas');
+      var _area = _canvas ? _canvas.parentElement : document.querySelector('.tool-canvas-area');
+      var _resizeRAF = null;
+
+      function _detectCanvas() {
+        var r = window.renderer || window.threeRenderer;
+        if (r && r.domElement) {
+          _canvas = r.domElement;
+          _area = _canvas.parentElement;
+          return;
+        }
+        var area = document.querySelector('.tool-canvas-area');
+        if (area) {
+          var canvases = area.querySelectorAll('canvas');
+          var visible = [];
+          for (var j = 0; j < canvases.length; j++) {
+            if (canvases[j].style.display !== 'none') visible.push(canvases[j]);
+          }
+          if (visible.length >= 1) {
+            var largest = visible[0];
+            for (var i = 1; i < visible.length; i++) {
+              if (visible[i].width * visible[i].height > largest.width * largest.height) {
+                largest = visible[i];
+              }
+            }
+            _canvas = largest;
+            _area = _canvas.parentElement;
+          }
+        }
+      }
+
+
+
+
+      function _applyBgCSS() {
+        _detectCanvas();
+        if (!_canvas) return;
+        if (_bgState.mode === 'none') {
+          _canvas.style.background = '';
+        } else if (_bgState.mode === 'solid') {
+          _canvas.style.background = _bgState.color;
+        } else if (_bgState.mode === 'image') {
+          if (_bgState.imageDataURL) {
+            var fitCss = _bgState.fit === 'fill' ? '100% 100%' : _bgState.fit;
+            _canvas.style.backgroundColor = _bgState.color;
+            _canvas.style.backgroundImage = 'url("' + _bgState.imageDataURL + '")';
+            _canvas.style.backgroundSize = fitCss;
+            _canvas.style.backgroundPosition = 'center';
+            _canvas.style.backgroundRepeat = 'no-repeat';
+          } else {
+            _canvas.style.backgroundImage = '';
+            _canvas.style.backgroundColor = _bgState.color;
+          }
+        }
+      }
+
+      function setBackground(state) {
+        state = state || {};
+        _bgState.mode = state.mode || 'none';
+        _bgState.color = state.color || '#ffffff';
+        _bgState.fit = state.fit || 'cover';
+        if (state.image && state.image !== _bgState.imageDataURL) {
+          _bgState.imageDataURL = state.image;
+          _bgState.imageEl = null;
+          _applyBgCSS();
+          var img = new Image();
+          img.onload = function() {
+            if (_bgState.imageDataURL !== state.image) return;
+            _bgState.imageEl = img;
+          };
+          img.src = state.image;
+        } else if (!state.image) {
+          _bgState.imageEl = null;
+          _bgState.imageDataURL = null;
+        }
+        _applyBgCSS();
+      }
+
+      function getBackground() {
+        return { mode: _bgState.mode, color: _bgState.color, fit: _bgState.fit };
+      }
+
+      function setCanvas(el) {
+        _canvas = el;
+        _area = el ? el.parentElement : document.querySelector('.tool-canvas-area');
+        if (_bgState.mode !== 'none') _applyBgCSS();
+      }
+
+      function setExportDimensions(w, h) {
+        _detectCanvas();
+        _exportMode = 'fixed';
+        _exportWidth = Math.max(1, Math.round(w || 1));
+        _exportHeight = Math.max(1, Math.round(h || 1));
+        if (_canvas) {
+          _canvas.width = _exportWidth;
+          _canvas.height = _exportHeight;
+        }
+        if (window.p5 && typeof window.resizeCanvas === 'function') window.resizeCanvas(_exportWidth, _exportHeight);
+        if (window.renderer && window.renderer.setSize) window.renderer.setSize(_exportWidth, _exportHeight, false);
+        if (window.hydra && window.hydra.setResolution) window.hydra.setResolution(_exportWidth, _exportHeight);
+        window.dispatchEvent(new Event('resize'));
+      }
+
+      function fitToArea() {}
+
+      function getExportDimensions() {
+        if (_exportMode === 'fixed') return { width: _exportWidth, height: _exportHeight, mode: 'fixed' };
+        _detectCanvas();
+        var __cw = _canvas ? _canvas.width : 0;
+        var __ch = _canvas ? _canvas.height : 0;
+        // A canvas still at the HTML default (300x150), or at zero, has never been
+        // sized, so it is not evidence of the export size. Answering from it is
+        // CIRCULAR: a tool that appends its own canvas and then asks is handed its
+        // own default straight back and sizes itself to that. That is how a
+        // 4096x1554 render came out as 300x150 of content on a blank frame -
+        // _detectCanvas skips display:none, so the correctly-sized canvas the tool
+        // had just hidden was passed over in favour of the tool's unsized one.
+        //
+        // The question is "how big is the export", so measure the surface the frame
+        // is captured from, not whichever canvas happens to be findable.
+        if (__cw && __ch && !(__cw === 300 && __ch === 150)) {
+          return { width: __cw, height: __ch, mode: 'auto' };
+        }
+        var __area = _area || document.querySelector('.tool-canvas-area');
+        var __aw = __area ? __area.clientWidth : 0;
+        var __ah = __area ? __area.clientHeight : 0;
+        if (!__aw || !__ah) { __aw = window.innerWidth; __ah = window.innerHeight; }
+        return { width: __aw, height: __ah, mode: 'auto' };
+      }
+
+      function isFixedExportMode() { return _exportMode === 'fixed'; }
+
+      function _onAreaResize() {
+        var r = window.renderer || window.threeRenderer;
+        if (!r || !r.setSize) return;
+        if (_resizeRAF) cancelAnimationFrame(_resizeRAF);
+        _resizeRAF = requestAnimationFrame(function() {
+          _detectCanvas();
+          if (!_area) return;
+          var w = _area.clientWidth;
+          var h = _area.clientHeight;
+          if (w <= 0 || h <= 0) return;
+          r.setSize(w, h);
+          window.dispatchEvent(new Event('resize'));
+        });
+      }
+      if (typeof ResizeObserver !== 'undefined' && _area) {
+        new ResizeObserver(_onAreaResize).observe(_area);
+      }
+      window.addEventListener('resize', _onAreaResize);
+
+      setTimeout(function() {
+        _detectCanvas();
+        if (_bgState.mode !== 'none') _applyBgCSS();
+      }, 500);
+
+      function getMousePos(event) {
+        _detectCanvas();
+        if (!_canvas) return { x: 0, y: 0 };
+        var rect = _canvas.getBoundingClientRect();
+        var scaleX = _canvas.width / rect.width;
+        var scaleY = _canvas.height / rect.height;
+        var touch = event.touches && event.touches[0]
+          ? event.touches[0]
+          : event.changedTouches && event.changedTouches[0]
+          ? event.changedTouches[0]
+          : null;
+        var clientX = touch ? touch.clientX : event.clientX;
+        var clientY = touch ? touch.clientY : event.clientY;
+        return {
+          x: (clientX - rect.left) * scaleX,
+          y: (clientY - rect.top) * scaleY
+        };
+      }
+
+      function drawImage(ctx, img, x, y, w, h, fit) {
+        if (!img || !img.width || !img.height) return;
+        fit = fit || 'cover';
+        var ar = img.width / img.height;
+        var car = w / h;
+        var sx = 0, sy = 0, sw = img.width, sh = img.height;
+        var dx = x, dy = y, dw = w, dh = h;
+
+        if (fit === 'cover') {
+          if (ar > car) { sw = img.height * car; sx = (img.width - sw) / 2; }
+          else { sh = img.width / car; sy = (img.height - sh) / 2; }
+        } else if (fit === 'contain') {
+          if (ar > car) { dh = w / ar; dy = y + (h - dh) / 2; }
+          else { dw = h * ar; dx = x + (w - dw) / 2; }
+        }
+
+        ctx.drawImage(img, sx, sy, sw, sh, dx, dy, dw, dh);
+      }
+
+      return {
+        setCanvas: setCanvas,
+        setBackground: setBackground,
+        getBackground: getBackground,
+        setExportDimensions: setExportDimensions,
+        fitToArea: fitToArea,
+        getExportDimensions: getExportDimensions,
+        isFixedExportMode: isFixedExportMode,
+
+
+        getMousePos: getMousePos,
+        drawImage: drawImage
+      };
+    })();
+
+    window.BrikCanvas = window.CanvasRuntimeAPI;
+    window.BrikControls = window.ControlsAPI;
+
+    (function() {
+      var srcDesc = Object.getOwnPropertyDescriptor(HTMLImageElement.prototype, 'src');
+      if (srcDesc && srcDesc.set) {
+        Object.defineProperty(HTMLImageElement.prototype, 'src', {
+          get: srcDesc.get,
+          set: function(val) {
+            if (val && typeof val === 'string' && !val.startsWith('data:') && !this.crossOrigin) {
+              this.crossOrigin = 'anonymous';
+            }
+            srcDesc.set.call(this, val);
+          },
+          configurable: true,
+          enumerable: true
+        });
+      }
+    })();
+
+    window.loadImage = function(src, callback) {
+      var img = new Image();
+      if (src && typeof src === 'string' && !src.startsWith('data:')) {
+        img.crossOrigin = 'anonymous';
+      }
+      img.onload = function() { if (callback) callback(img); };
+      img.onerror = function() { console.error('Failed to load image:', src); };
+      img.src = src;
+      return img;
+    };
+  
+  </script>
+  <script>
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+    var __ctArea = canvas.parentElement;
+    var __maxDim = (window.innerWidth <= 768) ? 960 : 4096;
+
+    function resizeCanvas() {
+      var cs = getComputedStyle(__ctArea);
+      canvas.width = Math.min(__maxDim, __ctArea.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight));
+      canvas.height = Math.min(__maxDim, __ctArea.clientHeight - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom));
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    var controls = (function() {
+      var _v = {"image_1":"https://base44.app/api/apps/69cbcd44d3da2a5cef013f5e/files/mp/public/69cbcd44d3da2a5cef013f5e/f1e5f6d8d_image_1_movdlxcx.png","headline_1_1":"01","headline_1_2":"RED AXE","headline_1_3":"(2024)","description_1":"DIRECTED BY: ROWAN CALDER\\nWRITTEN BY: LYSA MERREN\\nPRODUCED BY: FIRE FORGE\\nCINEMATOGRAPHY: JALEN ARIC\\nMUSIC: NIKO DRAEGUR","link_1":"https://example.com/red-axe","image_2":"https://base44.app/api/apps/69cbcd44d3da2a5cef013f5e/files/mp/public/69cbcd44d3da2a5cef013f5e/67d85b70d_image_2_movdlxcy.png","headline_2_1":"02","headline_2_2":"MONA","headline_2_3":"(2026)","description_2":"DIRECTED BY: EVAN K. MERCER\\nWRITTEN BY: DAHLIA WYNN\\nCINEMATOGRAPHY: JONAH REYES\\nEDITOR: KAI OKAMOTO\\nPRODUCTION DESIGN: MAREN WILDE","link_2":"https://eli216.wixstudio.com/tresmuchachosfw","image_3":"https://base44.app/api/apps/69cbcd44d3da2a5cef013f5e/files/mp/public/69cbcd44d3da2a5cef013f5e/70459333e_image_3_movdlxcz.png","headline_3_1":"03","headline_3_2":"THE BOUND FOR NOWHERE","headline_3_3":"(2022)","description_3":"DIRECTED BY: ARIA MONTGOMERY\\nWRITTEN BY: JONAS KELLER & ELIANA ROWE\\nPRODUCED BY: SILVER MESA PICTURES\\nCINEMATOGRAPHY: ORION VALE\\nMUSIC: JONATHAN KRELL","link_3":"https://example.com/bound-for-nowhere","image_4":"https://base44.app/api/apps/69cbcd44d3da2a5cef013f5e/files/mp/public/69cbcd44d3da2a5cef013f5e/0dfb7ab37_image_4_movdlxd0.png","headline_4_1":"04","headline_4_2":"Structural Depth","headline_4_3":"(2024)","description_4":"DIRECTED BY: AVA MORGAN\\nWRITTEN BY: KAI MERCER & ROWAN BLAKE\\nPRODUCED BY: ELIAS HARTMANN • NOVA GREENE\\n\\nCINEMATOGRAPHY: JALEN RHODES\\nMUSIC: NIKO ATLAS NOX","link_4":"https://example.com/structural-depth","image_5":"https://base44.app/api/apps/69cbcd44d3da2a5cef013f5e/files/mp/public/69cbcd44d3da2a5cef013f5e/cfcc3609b_image_5_movdlxd1.png","headline_5_1":"05","headline_5_2":"TENDER GROUNDS","headline_5_3":"(2026)","description_5":"DIRECTED BY: ARIN HALE\\nWRITTEN BY: ARIN HALE & KAI TREVOR\\nPRODUCED BY: JAY VELUM\\nCINEMATOGRAPHY: SOREN KEATS\\nMUSIC: DELPHINE CHOIR","link_5":"https://example.com/tender-grounds","image_6":"https://base44.app/api/apps/69cbcd44d3da2a5cef013f5e/files/mp/public/69cbcd44d3da2a5cef013f5e/f7f927613_image_6_movdlxd3.png","headline_6_1":"06","headline_6_2":"THE BOUND FOR NOWHERE","headline_6_3":"(2023)","description_6":"DIRECTED BY: L.R. MADDOX\\nWRITTEN BY: ROWAN HALE & MARA WYNN\\nPRODUCED BY: ELI HARTMAN\\nCINEMATOGRAPHY: FELIX ARDEN\\nMUSIC: COPPER + COAL AUDIO","link_6":"https://example.com/bound-for-nowhere-2","image_7":"https://base44.app/api/apps/69cbcd44d3da2a5cef013f5e/files/mp/public/69cbcd44d3da2a5cef013f5e/a58cd6a80_image_7_movdlxd4.png","headline_7_1":"07","headline_7_2":"WALKERS","headline_7_3":"(2024)","description_7":"DIRECTED BY: MARLOWE HART\\nWRITTEN BY: LUNAR ROWE\\nPRODUCED BY: ANSEL FOX\\nCINEMATOGRAPHY: ORION CALDWELL\\nMUSIC: ECHO WARD & ARDEN PHELPS","link_7":"https://example.com/walkers","image_8":"https://base44.app/api/apps/69cbcd44d3da2a5cef013f5e/files/mp/public/69cbcd44d3da2a5cef013f5e/008db2b9e_image_8_movdlxd5.png","headline_8_1":"08","headline_8_2":"SILENCED","headline_8_3":"(2026)","description_8":"DIRECTED BY: ROWAN HALE\\nWRITTEN BY: NIKO SERRIN & LIORA SHADE\\nPRODUCED BY: MARA KESSINGER • ELI GRAYSON\\n\\nCINEMATOGRAPHY: IRIS VELAN\\nMUSIC: REEVE CALDER","link_8":"https://example.com/silenced","customFont":"https://base44.app/api/apps/69cbcd44d3da2a5cef013f5e/files/mp/public/69cbcd44d3da2a5cef013f5e/77d34d021_customFont_mov6us3p.ttf","headlineColor":"#FFFFFF","descriptionColor":"#565656","hSize":34,"dSize":12,"textLeftMargin":80,"scale":1.03,"gap":19,"capacity":7,"jitter":15,"borderRadius":24,"borderColor":"#000000","showBorder":false,"playing":true,"speed":0.2,"easeType":"Quad-InOut","__sys_bg":{"mode":"solid","color":"#ff0000","image":null,"fit":"cover"}};
+      var _defaults = JSON.parse(JSON.stringify(_v));
+      var _listeners = {};
+      var _anyListeners = [];
+      var _actionListeners = {};
+      function _notify(key, value) {
+        if (_listeners[key]) _listeners[key].forEach(function(fn) { fn(value); });
+        _anyListeners.forEach(function(fn) { fn(key, value); });
+      }
+      function _hexToRgb(hex) {
+        var h = String(hex || '').replace('#', '');
+        if (h.length === 3) h = h[0] + h[0] + h[1] + h[1] + h[2] + h[2];
+        if (h.length !== 6 || !/^[0-9a-fA-F]{6}$/.test(h)) return null;
+        return {
+          r: parseInt(h.slice(0, 2), 16),
+          g: parseInt(h.slice(2, 4), 16),
+          b: parseInt(h.slice(4, 6), 16)
+        };
+      }
+      function _clamp(n, min, max) { return Math.min(max, Math.max(min, n)); }
+      function _hexToRgbaCss(hex, opacity0to100) {
+        var rgb = _hexToRgb(hex);
+        if (!rgb) return 'rgba(0,0,0,1)';
+        var op = opacity0to100 != null && !isNaN(Number(opacity0to100)) ? Number(opacity0to100) : 100;
+        var a = _clamp(op, 0, 100) / 100;
+        return 'rgba(' + rgb.r + ',' + rgb.g + ',' + rgb.b + ',' + a + ')';
+      }
+      var api = {
+        get: function(k) { return _v[k]; },
+        getAll: function() { return Object.assign({}, _v); },
+        getDefaults: function() { return JSON.parse(JSON.stringify(_defaults)); },
+        getColorWithAlpha: function(baseKey) { return _hexToRgbaCss(_v[baseKey], _v[baseKey + '_opacity']); },
+        set: function(k, v) { _v[k] = v; _notify(k, v); },
+        setValues: function(values) {
+          if (!values || typeof values !== 'object') return;
+          Object.keys(values).forEach(function(k) {
+            if (!(k in _v)) return;
+            try { _v[k] = JSON.parse(JSON.stringify(values[k])); }
+            catch (e) { _v[k] = values[k]; }
+            _notify(k, _v[k]);
+          });
+        },
+        setDefaults: function(values) {
+          if (!values || typeof values !== 'object') return;
+          Object.keys(values).forEach(function(k) {
+            try { _defaults[k] = JSON.parse(JSON.stringify(values[k])); }
+            catch (e) { _defaults[k] = values[k]; }
+          });
+        },
+        resetAll: function() {
+          Object.keys(_defaults).forEach(function(k) {
+            try { _v[k] = JSON.parse(JSON.stringify(_defaults[k])); }
+            catch (e) { _v[k] = _defaults[k]; }
+            _notify(k, _v[k]);
+          });
+        },
+        triggerAction: function(k) {
+          if (_actionListeners[k]) _actionListeners[k].forEach(function(fn) { fn(); });
+        },
+        onChange: function(k, cb) {
+          if (!_listeners[k]) _listeners[k] = [];
+          _listeners[k].push(cb);
+        },
+        onAny: function(cb) { _anyListeners.push(cb); },
+        onAction: function(k, cb) {
+          if (!_actionListeners[k]) _actionListeners[k] = [];
+          _actionListeners[k].push(cb);
+        }
+      };
+      window.ControlsAPI = api;
+      window.BrikControls = api;
+      // Deferred initial-value replay for asset controls. Mirrors the TIMING of the real
+      // widgets (ct-multi-image / ct-image / ct-file): fires after the creative code below has
+      // registered its onChange listeners, so an onChange-only asset loader runs on load.
+      //
+      // It deliberately does NOT mirror their payload/guard semantics:
+      //   * reads _v[k] at fire time, where ct-image/ct-file replay the def.default they
+      //     captured at schedule time. If a tool set a new value at init, replaying the captured
+      //     one would tell listeners a stale value that contradicts _v. (ct-multi-image already
+      //     re-reads live, and would throw on a scalar where the guard below skips.)
+      //   * skips instead of notifying unconditionally. The guard is what stops a wrong-shaped
+      //     value arriving via setValues (parent IPC / projection studio) from reaching a tool
+      //     that expects an array — the build-time filter only covers baked values.
+      // Both differences are intentional and pinned by tests; do not "align" them to the widgets.
+      setTimeout(function() {
+        ["customFont"].forEach(function(k) {
+          var v = _v[k];
+          if (Array.isArray(v)) { if (v.length > 0) _notify(k, v.slice()); }
+          else if (v) { _notify(k, v); }
+        });
+      }, 0);
+      return api;
+    })();
+
+    
+
+    // Creative Code
+    {
+      // Clean up any existing DOM overlays from previous versions
+const existingOverlay = document.querySelector('.text-overlay');
+if (existingOverlay) {
+  existingOverlay.remove();
+}
+
+// Generative card stack with 8 separate content slots and native canvas text rendering.
+let globalTime = 0;
+let lastTimestamp = 0;
+let hoveredIndex = -1;
+let targetGlobalTime = 0;
+let isHovering = false;
+const imageCache = new Map();
+
+// Smooth per-card hover scale
+const cardScales = new Map();
+const HOVER_SCALE = 1.08;
+const SCALE_EASE = 0.18;
+
+// Text alpha transition
+let textAlpha = 0;
+let lastHoveredSlot = null;
+
+// Font handling
+let customFontLoaded = false;
+
+async function loadCustomFont(url) {
+  if (typeof url === 'string' && url.trim() !== '') {
+    try {
+      const fontName = 'CustomUserFont';
+      const fontFace = new FontFace(fontName, `url(${url})`);
+      const loadedFace = await fontFace.load();
+      document.fonts.add(loadedFace);
+      customFontLoaded = true;
+    } catch (err) {
+      console.warn('Custom font load failed, falling back to system font.', err);
+      customFontLoaded = false;
+    }
+  } else {
+    customFontLoaded = false;
+  }
+}
+
+controls.onChange('customFont', loadCustomFont);
+loadCustomFont(controls.get('customFont'));
+
+// Easing functions
+const easeFunctions = {
+  'Linear': (p) => p,
+  'Quad-InOut': (p) => p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2,
+  'Cubic-InOut': (p) => p < 0.5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2,
+  'Back-Out': (p) => {
+    const c1 = 1.70158;
+    const c3 = c1 + 1;
+    return 1 + c3 * Math.pow(p - 1, 3) + c1 * Math.pow(p - 1, 2);
+  },
+  'Expo-InOut': (p) => p === 0 ? 0 : p === 1 ? 1 : p < 0.5 ? Math.pow(2, 20 * p - 10) / 2 : (2 - Math.pow(2, -20 * p + 10)) / 2
+};
+
+function getCachedImage(url) {
+  if (!url) return null;
+  if (imageCache.has(url)) return imageCache.get(url);
+  const img = new Image();
+  img.src = url;
+  img.crossOrigin = 'anonymous';
+  imageCache.set(url, img);
+  return img;
+}
+
+function getActiveSlots() {
+  const slots = [];
+  for (let i = 1; i <= 8; i++) {
+    const url = controls.get(`image_${i}`);
+    if (url) {
+      slots.push({
+        id: i,
+        url: url,
+        headline1: controls.get(`headline_${i}_1`) || '',
+        headline2: controls.get(`headline_${i}_2`) || '',
+        headline3: controls.get(`headline_${i}_3`) || '',
+        description: controls.get(`description_${i}`) || ''
+      });
+    }
+  }
+  return slots;
+}
+
+// Text wrapping utility
+function getWrappedLines(ctx, text, maxWidth) {
+  const paragraphs = text.split(/\r?\n|\\n/);
+  const allLines = [];
+  
+  for (const para of paragraphs) {
+    const words = para.split(' ');
+    let line = '';
+    
+    for (let n = 0; n < words.length; n++) {
+      const testLine = line + (line === '' ? '' : ' ') + words[n];
+      const metrics = ctx.measureText(testLine);
+      if (metrics.width > maxWidth && n > 0) {
+        allLines.push(line);
+        line = words[n];
+      } else {
+        line = testLine;
+      }
+    }
+    allLines.push(line);
+  }
+  return allLines;
+}
+
+// Native Canvas Metadata Renderer
+function drawMetadata(ctx, slot, alpha) {
+  if (alpha <= 0.01) return;
+
+  ctx.save();
+  ctx.globalAlpha = alpha;
+
+  const w = canvas.width;
+  const h = canvas.height;
+  const isLandscape = w >= h;
+
+  const headlineColor = controls.get('headlineColor');
+  const descriptionColor = controls.get('descriptionColor');
+  const hSize = controls.get('hSize');
+  const dSize = controls.get('dSize');
+  const textLeftMargin = controls.get('textLeftMargin');
+
+  const fontName = customFontLoaded ? 'CustomUserFont' : 'var(--clay-font)';
+
+  const h1 = slot.headline1 || '';
+  const h2 = slot.headline2 || '';
+  const h3 = slot.headline3 || '';
+  const desc = slot.description || '';
+
+  // No text shadow for clean typography
+
+  if (isLandscape) {
+    // Landscape layout: Text on the left side of the screen
+    const paddingLeft = textLeftMargin;
+    
+    // Calculate available width before hitting the centered card stack
+    const scale = controls.get('scale');
+    const cardW = w * 0.4 * scale;
+    const cardLeftEdge = w / 2 - cardW / 2;
+    const textWidth = Math.max(200, cardLeftEdge - paddingLeft - 40);
+    
+    // Calculate total height to center vertically
+    let totalHeight = 0;
+    if (h1) totalHeight += hSize * 1.1;
+    
+    ctx.font = `bold ${hSize * 1.8}px ${fontName}`;
+    const titleLines = getWrappedLines(ctx, h2, textWidth);
+    totalHeight += titleLines.length * hSize * 2.0;
+    
+    if (h3) totalHeight += hSize * 1.5;
+    totalHeight += 20; // Gap
+    
+    ctx.font = `normal ${dSize}px ${fontName}`;
+    const descLines = getWrappedLines(ctx, desc, textWidth);
+    totalHeight += descLines.length * dSize * 1.4;
+
+    let currentY = (h - totalHeight) / 2;
+
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'top';
+
+    // Draw Part 1 (Number/Prefix)
+    if (h1) {
+      ctx.font = `normal ${hSize * 0.9}px ${fontName}`;
+      ctx.fillStyle = descriptionColor;
+      ctx.fillText(h1, paddingLeft, currentY);
+      currentY += hSize * 1.2;
+    }
+
+    // Draw Part 2 (Main Title)
+    if (h2) {
+      ctx.font = `bold ${hSize * 1.8}px ${fontName}`;
+      ctx.fillStyle = headlineColor;
+      titleLines.forEach(line => {
+        ctx.fillText(line, paddingLeft, currentY);
+        currentY += hSize * 2.0;
+      });
+    }
+
+    // Draw Part 3 (Year/Suffix)
+    if (h3) {
+      ctx.font = `italic ${hSize * 1.0}px ${fontName}`;
+      ctx.fillStyle = descriptionColor;
+      ctx.fillText(h3, paddingLeft, currentY);
+      currentY += hSize * 1.6;
+    }
+
+    currentY += 20; // Gap before description
+
+    // Draw Description
+    ctx.font = `normal ${dSize}px ${fontName}`;
+    ctx.fillStyle = descriptionColor;
+    descLines.forEach(line => {
+      ctx.fillText(line, paddingLeft, currentY);
+      currentY += dSize * 1.4;
+    });
+
+  } else {
+    // Portrait layout: Text at the bottom of the screen with a dark gradient scrim
+    const paddingX = textLeftMargin;
+    const textWidth = Math.max(150, w - paddingX - 40);
+    
+    // Calculate total height for portrait
+    let totalHeight = 0;
+    if (h1) totalHeight += hSize * 1.0;
+    
+    ctx.font = `bold ${hSize * 1.4}px ${fontName}`;
+    const titleLines = getWrappedLines(ctx, h2 + (h3 ? ` ${h3}` : ''), textWidth);
+    totalHeight += titleLines.length * hSize * 1.6;
+    
+    totalHeight += 15; // Gap
+    
+    ctx.font = `normal ${dSize}px ${fontName}`;
+    const descLines = getWrappedLines(ctx, desc, textWidth);
+    totalHeight += descLines.length * dSize * 1.4;
+
+    // Draw a beautiful dark gradient scrim at the bottom
+    const scrimHeight = Math.max(h * 0.32, totalHeight + h * 0.08);
+    const gradient = ctx.createLinearGradient(0, h - scrimHeight, 0, h);
+    gradient.addColorStop(0, 'rgba(0, 0, 0, 0)');
+    gradient.addColorStop(0.3, 'rgba(0, 0, 0, 0.8)');
+    gradient.addColorStop(1, 'rgba(0, 0, 0, 0.95)');
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, h - scrimHeight, w, scrimHeight);
+
+    let currentY = h - h * 0.06; // Start from bottom up
+
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'bottom';
+
+    // Draw description lines from bottom to top
+    for (let i = descLines.length - 1; i >= 0; i--) {
+      ctx.fillText(descLines[i], paddingX, currentY);
+      currentY -= dSize * 1.4;
+    }
+
+    currentY -= 15; // Gap
+
+    // Draw Title and Year
+    ctx.font = `bold ${hSize * 1.4}px ${fontName}`;
+    ctx.fillStyle = headlineColor;
+    for (let i = titleLines.length - 1; i >= 0; i--) {
+      ctx.fillText(titleLines[i], paddingX, currentY);
+      currentY -= hSize * 1.6;
+    }
+
+    // Draw Number
+    if (h1) {
+      ctx.font = `normal ${hSize * 0.8}px ${fontName}`;
+      ctx.fillStyle = descriptionColor;
+      ctx.fillText(h1, paddingX, currentY);
+    }
+  }
+
+  ctx.restore();
+}
+
+function drawCard(x, y, w, h, img, rotation, hoverScale) {
+  const radius = controls.get('borderRadius');
+  const borderColor = controls.get('borderColor');
+  const s = hoverScale ?? 1;
+  const t = (s - 1) / (HOVER_SCALE - 1); // 0..1 hover progress
+
+  ctx.save();
+  ctx.translate(x + w / 2, y + h / 2);
+  ctx.rotate(rotation);
+
+  if (s !== 1) {
+    ctx.scale(s, s);
+  }
+
+  // Image
+  ctx.save();
+  ctx.beginPath();
+  ctx.roundRect(-w / 2 + 10, -h / 2 + 10, w - 20, h - 20, Math.max(0, radius - 10));
+  ctx.clip();
+  if (img && img.complete && img.naturalWidth > 0) {
+    CanvasRuntimeAPI.drawImage(ctx, img, -w / 2 + 10, -h / 2 + 10, w - 20, h - 20, 'cover');
+  } else {
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.05)';
+    ctx.fillRect(-w / 2 + 10, -h / 2 + 10, w - 20, h - 20);
+  }
+  ctx.restore();
+  
+  // Border
+  if (controls.get('showBorder')) {
+    ctx.beginPath();
+    ctx.roundRect(-w / 2, -h / 2, w, h, radius);
+    ctx.strokeStyle = borderColor;
+    ctx.lineWidth = 2 + 2 * t;
+    ctx.stroke();
+  }
+  
+  ctx.restore();
+}
+
+function getCardAtPosition(pos) {
+  const slots = getActiveSlots();
+  const w = canvas.width;
+  const h = canvas.height;
+  const scale = controls.get('scale');
+  const cardW = w * 0.4 * scale;
+  const defaultRatio = 1.4;
+  const gap = controls.get('gap');
+  const capacity = controls.get('capacity');
+  const easeType = controls.get('easeType');
+  const ease = easeFunctions[easeType] || easeFunctions['Cubic-InOut'];
+
+  const hitTestData = slots.map((slot, i) => {
+    const img = getCachedImage(slot.url);
+    const ratio = (img && img.complete && img.naturalHeight > 0) ? (img.naturalHeight / img.naturalWidth) : defaultRatio;
+    const cardH = cardW * ratio;
+    const p = (globalTime + i / slots.length) % 1;
+    const easedP = ease(p);
+    const startY = h + cardH;
+    const endY = -cardH;
+    const centerY = h / 2;
+    let y;
+    if (easedP < 0.5) {
+      const t = easedP * 2;
+      y = startY + (centerY - startY) * t;
+    } else {
+      const t = (easedP - 0.5) * 2;
+      y = centerY + (endY - centerY) * t;
+    }
+    const stackIndex = i % capacity;
+    const stackOffset = (stackIndex - capacity / 2) * gap;
+    y += stackOffset;
+    return { id: slot.id, x: w / 2 - cardW / 2 - 10, y: y - cardH / 2 - 10, w: cardW + 20, h: cardH + 20, p };
+  });
+
+  hitTestData.sort((a, b) => b.p - a.p);
+
+  for (const card of hitTestData) {
+    if (pos.x >= card.x && pos.x <= card.x + card.w &&
+        pos.y >= card.y && pos.y <= card.y + card.h) {
+      return card.id;
+    }
+  }
+  return -1;
+}
+
+canvas.addEventListener('mousemove', (e) => {
+  const pos = CanvasRuntimeAPI.getMousePos(e);
+  const foundIndex = getCardAtPosition(pos);
+
+  if (foundIndex !== -1) {
+    canvas.style.cursor = 'pointer';
+    if (hoveredIndex !== foundIndex) {
+      hoveredIndex = foundIndex;
+      isHovering = true;
+      
+      const slots = getActiveSlots();
+      const visualIndex = slots.findIndex(s => s.id === hoveredIndex);
+      targetGlobalTime = 0.5 - (visualIndex / slots.length);
+      const period = 1;
+      const diff = ((targetGlobalTime - globalTime) % period + period + period / 2) % period - period / 2;
+      targetGlobalTime = globalTime + diff;
+    }
+  } else {
+    canvas.style.cursor = 'default';
+    isHovering = false;
+    hoveredIndex = -1;
+  }
+});
+
+canvas.addEventListener('mouseleave', () => {
+  isHovering = false;
+  hoveredIndex = -1;
+  canvas.style.cursor = 'default';
+});
+
+canvas.addEventListener('click', (e) => {
+  const pos = CanvasRuntimeAPI.getMousePos(e);
+  const clickedIndex = getCardAtPosition(pos);
+  if (clickedIndex !== -1) {
+    const link = controls.get(`link_${clickedIndex}`);
+    if (link && link.trim() !== '') {
+      window.open(link, '_blank');
+    }
+  }
+});
+
+canvas.addEventListener('wheel', (e) => {
+  e.preventDefault();
+  const sensitivity = 0.0005;
+  globalTime += e.deltaY * sensitivity;
+  
+  isHovering = false;
+  hoveredIndex = -1;
+}, { passive: false });
+
+function draw(timestamp) {
+  if (!lastTimestamp) lastTimestamp = timestamp;
+  const deltaTime = Math.min((timestamp - lastTimestamp) * 0.001, 0.1);
+  lastTimestamp = timestamp;
+
+  if (isHovering) {
+    globalTime += (targetGlobalTime - globalTime) * 0.1;
+  } else if (controls.get('playing')) {
+    globalTime += deltaTime * controls.get('speed') * 0.2;
+  }
+
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  const slots = getActiveSlots();
+  if (slots.length === 0) {
+    requestAnimationFrame(draw);
+    return;
+  }
+
+  const w = canvas.width;
+  const h = canvas.height;
+  const scale = controls.get('scale');
+  const cardW = w * 0.4 * scale;
+  const defaultRatio = 1.4;
+  const gap = controls.get('gap');
+  const capacity = controls.get('capacity');
+  const jitterAmount = controls.get('jitter') * (Math.PI / 180);
+  const easeType = controls.get('easeType');
+  const ease = easeFunctions[easeType] || easeFunctions['Cubic-InOut'];
+
+  const cardData = slots.map((slot, i) => {
+    const img = getCachedImage(slot.url);
+    const ratio = (img && img.complete && img.naturalHeight > 0) ? (img.naturalHeight / img.naturalWidth) : defaultRatio;
+    const cardH = cardW * ratio;
+
+    const p = (globalTime + i / slots.length) % 1;
+    const easedP = ease(p);
+    
+    const startY = h + cardH;
+    const endY = -cardH;
+    const centerY = h / 2;
+    
+    let y;
+    if (easedP < 0.5) {
+      const t = easedP * 2;
+      y = startY + (centerY - startY) * t;
+    } else {
+      const t = (easedP - 0.5) * 2;
+      y = centerY + (endY - centerY) * t;
+    }
+
+    const stackIndex = i % capacity;
+    const stackOffset = (stackIndex - capacity / 2) * gap;
+    y += stackOffset;
+
+    const rotation = Math.sin(i * 1.5) * jitterAmount;
+
+    return { url: slot.url, y, p, rotation, id: slot.id, cardH };
+  });
+
+  cardData.sort((a, b) => a.p - b.p);
+
+  // Ease per-card hover scale toward target
+  const activeIds = new Set(slots.map(s => s.id));
+  activeIds.forEach(id => {
+    const current = cardScales.get(id) ?? 1;
+    const target = id === hoveredIndex ? HOVER_SCALE : 1;
+    const next = current + (target - current) * SCALE_EASE;
+    cardScales.set(id, Math.abs(next - target) < 0.0005 ? target : next);
+  });
+
+  cardData.forEach(data => {
+    const img = getCachedImage(data.url);
+    const hoverScale = cardScales.get(data.id) ?? 1;
+    drawCard(w / 2 - cardW / 2, data.y - data.cardH / 2, cardW, data.cardH, img, data.rotation, hoverScale);
+  });
+
+  // Smoothly transition text alpha and draw metadata
+  if (hoveredIndex !== -1) {
+    const slot = slots.find(s => s.id === hoveredIndex);
+    if (slot) {
+      lastHoveredSlot = slot;
+    }
+  }
+
+  const targetAlpha = (isHovering && hoveredIndex !== -1) ? 1 : 0;
+  textAlpha += (targetAlpha - textAlpha) * 0.15;
+
+  if (textAlpha > 0.01 && lastHoveredSlot) {
+    drawMetadata(ctx, lastHoveredSlot, textAlpha);
+  }
+
+  requestAnimationFrame(draw);
+}
+
+requestAnimationFrame(draw);
+
+    }
+
+    // System Background Wiring
+    if (typeof CanvasRuntimeAPI !== 'undefined') {
+      var __sysBgVal = controls.get('__sys_bg');
+      if (__sysBgVal) CanvasRuntimeAPI.setBackground(__sysBgVal);
+    }
+  </script>
+</body>
+</html>
